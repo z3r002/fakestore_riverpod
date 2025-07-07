@@ -13,5 +13,6 @@ class AppRouter extends $AppRouter {
         page: UISplashScreenRoute.page,
         initial: true),
     AutoRoute(page: GalleryScreenRoute.page),
+    AutoRoute(page: GalleryDetailsCardRoute.page),
   ];
 }

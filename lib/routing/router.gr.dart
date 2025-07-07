@@ -8,48 +8,49 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i3;
-import 'package:fakestore_riverpod/screens/gallery_screen.dart' as _i1;
-import 'package:fakestore_riverpod/screens/splash_screen.dart' as _i2;
+import 'package:auto_route/auto_route.dart' as _i4;
+import 'package:fakestore_riverpod/model/product_dto.dart' as _i6;
+import 'package:fakestore_riverpod/presenter/gallery/screens/gallery_details_card.dart'
+    as _i3;
+import 'package:fakestore_riverpod/presenter/gallery/screens/gallery_screen.dart'
+    as _i2;
+import 'package:fakestore_riverpod/presenter/splash_screen.dart' as _i1;
+import 'package:flutter/material.dart' as _i5;
 
-abstract class $AppRouter extends _i3.RootStackRouter {
+abstract class $AppRouter extends _i4.RootStackRouter {
   $AppRouter({super.navigatorKey});
 
   @override
-  final Map<String, _i3.PageFactory> pagesMap = {
-    GalleryScreenRoute.name: (routeData) {
-      return _i3.AutoRoutePage<dynamic>(
+  final Map<String, _i4.PageFactory> pagesMap = {
+    UISplashScreenRoute.name: (routeData) {
+      return _i4.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i1.GalleryScreen(),
+        child: const _i1.UISplashScreen(),
       );
     },
-    UISplashScreenRoute.name: (routeData) {
-      return _i3.AutoRoutePage<dynamic>(
+    GalleryScreenRoute.name: (routeData) {
+      return _i4.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i2.UISplashScreen(),
+        child: _i2.GalleryScreen(),
+      );
+    },
+    GalleryDetailsCardRoute.name: (routeData) {
+      final args = routeData.argsAs<GalleryDetailsCardRouteArgs>();
+      return _i4.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i3.GalleryDetailsCard(
+          key: args.key,
+          product: args.product,
+        ),
       );
     },
   };
 }
 
 /// generated route for
-/// [_i1.GalleryScreen]
-class GalleryScreenRoute extends _i3.PageRouteInfo<void> {
-  const GalleryScreenRoute({List<_i3.PageRouteInfo>? children})
-      : super(
-          GalleryScreenRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'GalleryScreenRoute';
-
-  static const _i3.PageInfo<void> page = _i3.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i2.UISplashScreen]
-class UISplashScreenRoute extends _i3.PageRouteInfo<void> {
-  const UISplashScreenRoute({List<_i3.PageRouteInfo>? children})
+/// [_i1.UISplashScreen]
+class UISplashScreenRoute extends _i4.PageRouteInfo<void> {
+  const UISplashScreenRoute({List<_i4.PageRouteInfo>? children})
       : super(
           UISplashScreenRoute.name,
           initialChildren: children,
@@ -57,5 +58,58 @@ class UISplashScreenRoute extends _i3.PageRouteInfo<void> {
 
   static const String name = 'UISplashScreenRoute';
 
-  static const _i3.PageInfo<void> page = _i3.PageInfo<void>(name);
+  static const _i4.PageInfo<void> page = _i4.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i2.GalleryScreen]
+class GalleryScreenRoute extends _i4.PageRouteInfo<void> {
+  const GalleryScreenRoute({List<_i4.PageRouteInfo>? children})
+      : super(
+          GalleryScreenRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'GalleryScreenRoute';
+
+  static const _i4.PageInfo<void> page = _i4.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i3.GalleryDetailsCard]
+class GalleryDetailsCardRoute
+    extends _i4.PageRouteInfo<GalleryDetailsCardRouteArgs> {
+  GalleryDetailsCardRoute({
+    _i5.Key? key,
+    required _i6.ProductResponse product,
+    List<_i4.PageRouteInfo>? children,
+  }) : super(
+          GalleryDetailsCardRoute.name,
+          args: GalleryDetailsCardRouteArgs(
+            key: key,
+            product: product,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'GalleryDetailsCardRoute';
+
+  static const _i4.PageInfo<GalleryDetailsCardRouteArgs> page =
+      _i4.PageInfo<GalleryDetailsCardRouteArgs>(name);
+}
+
+class GalleryDetailsCardRouteArgs {
+  const GalleryDetailsCardRouteArgs({
+    this.key,
+    required this.product,
+  });
+
+  final _i5.Key? key;
+
+  final _i6.ProductResponse product;
+
+  @override
+  String toString() {
+    return 'GalleryDetailsCardRouteArgs{key: $key, product: $product}';
+  }
 }
