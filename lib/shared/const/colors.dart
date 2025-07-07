@@ -14,6 +14,7 @@ class UIColors {
   static const Color cF2F5FF = Color(0xFFF2F5FF);
   static const Color cFECF2B = Color(0xFFFECF2B);
   static const Color cD2D3D6 = Color(0XFFD2D3D6);
+  static const Color c1C2526 = Color(0XFF1C2526);
   static const Color c8B98A7 = Color(0xFF8B98A7);
   static const Color c76767A = Color(0xFF76767A);
   static const Color cE0E0E0 = Color(0xFFE0E0E0);

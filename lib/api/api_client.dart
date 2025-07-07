@@ -64,7 +64,7 @@ abstract class ApiClient {
   }
 
   @GET("products")
-  Future<ProductResponse> getProducts();
+  Future<List<ProductResponse>> getProducts();
 
   // @GET("/v1/mo/{mo_id}/district")
   // Future<GetDistrictResponse> getDistrict(@Path("mo_id") int moId);
